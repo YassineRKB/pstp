@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs Page</title>
+</head>
+
+<body>
+    <h1>Blogs</h1>
+
+    <ul>
+        {% for blog in blogs %}
+        <li>{{ blog.title }} - {{ blog.author }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

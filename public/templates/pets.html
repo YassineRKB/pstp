@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pets Page</title>
+</head>
+
+<body>
+    <h1>Pets</h1>
+
+    <ul>
+        {% for pet in pets %}
+        <li>{{ pet.name }} - {{ pet.species }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
