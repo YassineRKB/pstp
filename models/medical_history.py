@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """models medical history"""
 from .db import db
+from datetime import datetime
 
 class MedicalHistory(db.Model):
     """medical history class"""
     __tablename__ = 'medic_history'
     id = db.Column(db.Integer, primary_key=True)
-    pet_id = db.Column(db.Integer, nullable=False)
+    pet_id = db.Column(db.Integer, db.ForeignKey('allpets.id'), nullable=False)
     checkup_timestamp = db.Column(db.TIMESTAMP, nullable=False)
     checkup_summary = db.Column(db.Text)
 

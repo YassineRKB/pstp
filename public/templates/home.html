@@ -77,8 +77,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ blog.title }}</h5>
-                        <p> {{ blog.short_description }}</p>
+                        <p>{{ blog.short_description }}</p>
                         <p class="card-text">by: {{ blog.author }}</p>
+                        
+                        <!-- Read More button linking to the blog with blog ID -->
+                        <a href="/blog/{{ blog.id }}" class="btn btn-primary btn-sm float-right">Read More</a>
                     </div>
                 </div>
             </div>
