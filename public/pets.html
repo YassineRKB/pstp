@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Registered Pets</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/dark-mode.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            {% set active_route = active_route %}
+            {% include 'blocks/side-navbar.html' %}
+            <!-- Main Wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                {% include 'blocks/top-navbar.html' %}
+                <!-- Main Area-->
+                <div class="container-fluid">     
+                    <main class="col-md-12 col-lg-12 main-content">
+                        <h2>Pets Registered with Shelter</h2>
+                        <div class="container mt-4">
+                            <div class="container mt-4">
+                                <!-- Filter Options -->
+                                <div class="row mb-4">
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="species-filter">
+                                            <option value="">All Species</option>
+                                            <option value="cat">Cat</option>
+                                            <option value="dog">Dog</option>
+                                            <!-- Add other species if needed -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="status-filter">
+                                            <option value="">All Adoption Statuses</option>
+                                            <option value="adopted">Adopted</option>
+                                            <option value="not adopted">Not Adopted</option>
+                                            <!-- Add other adoption statuses if needed -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="gender-filter">
+                                            <option value="">All Genders</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <!-- Add other genders if needed -->
+                                        </select>
+                                    </div>
+                                </div>
+                        
+                                <!-- Pet Cards -->
+                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" id="pet-cards">
+                                    {% for pet in pets %}
+                                    <div class="col mb-4">
+                                        <div class="card">
+                                            <img src="{% if pet.pet_type == 'cat' %}https://logowik.com/content/uploads/images/black-cat4091.logowik.com.webp{% elif pet.pet_type == 'dog' %}https://logowik.com/content/uploads/images/golden-retriever-dog793.logowik.com.webp{% endif %}" class="card-img-top img-fluid" alt="{% if pet.pet_type == 'cat' %}Cat Image{% elif pet.pet_type == 'dog' %}Dog Image{% endif %}">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><strong>{{ pet.pet_name }}</strong></h5>
+                                                <p class="card-text">{{ pet.gender }} - {{ pet.pet_type }}</p>
+                                                <a href="/pets/{{ pet.id }}" class="btn btn-primary">Profile</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>                            
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <footer class="footer">
+                    <p class="credits-pstp">pstp made with &hearts; 2023</p>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/pets.js') }}"></script>
+    </body>
+</html>
+

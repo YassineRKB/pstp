@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Shelter Overview</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/dark-mode.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            {% set active_route = active_route %}
+            {% include 'blocks/side-navbar.html' %}
+            <!-- Main Wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                {% include 'blocks/top-navbar.html' %}
+                <!-- Main Area-->
+                <div class="container-fluid">     
+                    <main class="col-md-12 col-lg-12 main-content">
+                        <h2>Shelter Overview</h2>
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="status-box status-pet">
+                                        <div class="status-title">Total Registered Pets</div>
+                                        <div class="status-value">{{ shelter.total_regi_pets }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="status-box status-food">
+                                        <div class="status-title">Total Food</div>
+                                        <div class="status-value">{{ shelter.total_food }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="status-box status-checkup">
+                                        <div class="status-title">Total Checkup</div>
+                                        <div class="status-value">{{ shelter.total_checkup }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="status-box status-clients">
+                                        <div class="status-title">Total Clients</div>
+                                        <div class="status-value">{{ shelter.total_clients }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="status-box status-users">
+                                        <div class="status-title">Total Users</div>
+                                        <div class="status-value">{{ shelter.total_users }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="status-box status-blogs">
+                                        <div class="status-title">Total Blogs</div>
+                                        <div class="status-value">{{ shelter.total_blogs }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <footer class="footer">
+                    <p class="credits-pstp">pstp made with &hearts; 2023</p>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>

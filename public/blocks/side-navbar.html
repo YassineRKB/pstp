@@ -1,0 +1,17 @@
+<div class="border-end bg-dark" id="sidebar-wrapper">
+    <div class="sidebar-heading border-bottom bg-dark">PSTP - Platform</div>
+    <div class="list-group list-group-flush --bs-gray">
+        <a class="list-group-item list-group-item-action list-group-item-dark p-3 {% if active_route == 'home' %}active{% endif %}" 
+        href="/home"><i class="fas fa-laptop"></i> Home</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark p-3 {% if active_route == 'blogs' %}active{% endif %}" 
+        href="/blogs"><i class="fas fa-th"></i> Blogs</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark p-3 {% if active_route == 'pets' %}active{% endif %}" 
+        href="/pets"><i class="fas fa-paw"></i> Pets</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark p-3 {% if active_route == 'shelter' %}active{% endif %}" 
+        href="/shelter"><i class="fas fa-home"></i> Shelter</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark p-3 {% if active_route == 'medical' %}active{% endif %}" 
+        href="/medical"><i class="fas fa-heart"></i> Medical</a>
+        <a class="list-group-item list-group-item-action list-group-item-dark p-3 {% if active_route == 'donation' %}active{% endif %}" 
+        href="/donate"><i class="fas fa-wallet"></i> Donate</a>
+    </div>
+</div>

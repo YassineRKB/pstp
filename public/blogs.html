@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Registered Pets</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/dark-mode.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            {% set active_route = active_route %}
+            {% include 'blocks/side-navbar.html' %}
+            <!-- Main Wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                {% include 'blocks/top-navbar.html' %}
+                <!-- Main Area-->
+                <div class="container-fluid">     
+                    <main class="col-md-12 col-lg-12 main-content">
+                        <h2>Latest Blogs</h2>
+                        <div class="container mt-4">
+                            {% for blog in blogs|reverse %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><strong>{{ blog.title }}</strong></h5>
+                                            <p class="card-text">{{ blog.short_description }}</p>
+                                            <a href="/blogs/{{ blog.id }}" class="btn btn-primary btn-sm btn-read-more">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </main>
+                </div>
+                <footer class="footer">
+                    <p class="credits-pstp">pstp made with &hearts; 2023</p>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>

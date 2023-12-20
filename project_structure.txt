@@ -1,20 +1,3 @@
-
-#Pets Shelter Terra - Platform
-
-## Table of Contents
-
-- [Description](#description)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-
-## Description
-
-This project, **Pets Shelter Terra - Platform**, is a comprehensive platform aimed at managing a pet shelter. It includes functionalities to handle pets' data, client information, medical history, blogs, and user management.
-
-## Project Structure
-
-```bash
 .
 ├── api
 │   ├── __init__.py
@@ -70,46 +53,5 @@ This project, **Pets Shelter Terra - Platform**, is a comprehensive platform aim
         ├── payment.js
         ├── pets.js
         └── scripts.js
-```
 
 10 directories, 45 files
-
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/YassineRKB/pstp.git
-
-2. Navigate to the project directory:
-
-    cd pstp
-
-3. Install dependencies:
-
-    pip install flask sqlalchemy Flask-SQLAlchemy
-
-
-    Set up the database by executing the SQL script:
-
-        mysql -u your_username -p < initdb.sql
-    
-    (optional) fill db with available db dump
-        
-        cat dump-v1.8.3.sql | mysql -u your_user -p
-
-## Usage
-
-    Run the application:
-
-        DB_USER="dev_usr" DB_PASSWORD="dev_pwd" DB_NAME="db_dev" python3 run.py
-        DB_USER="dev_usr" DB_PASSWORD="dev_pwd" DB_NAME="db_dev" python3 api.py
-
-    Access the application by visiting http://localhost:5000 in your web browser.
-    api lives in http://localhost/:5001/api/v1
-
-## credits
-    yassine rakibi <yassine@arcraven.com>
-
-## license
-    gpl 3.0

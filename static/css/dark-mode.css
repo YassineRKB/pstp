@@ -1,0 +1,106 @@
+body {
+    background-color: #f4fbff;
+    /* color: #ffffff; */
+}
+#sidebar-wrapper .list-group-item {
+    color: #ffffff;
+    background-color: #212529 !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Active link color */
+#sidebar-wrapper .list-group-item.active {
+    color: #ffffff;
+    background-color: #4f5963 !important;
+}
+
+/* Hover link color */
+#sidebar-wrapper .list-group-item:hover {
+    color: #ffffff;
+    background-color: #4f5963 !important;
+}
+/* Sidebar heading */
+#sidebar-wrapper .sidebar-heading {
+    color: #ffffff;
+    background-color: #212529 !important;
+}
+
+/* Footer styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: right;
+    background-color: #212529;
+    padding: 10px;
+}
+.credits-pstp {
+    margin: 0;
+    font-size: 14px;
+    color: #ffffff;
+}
+/* shelter cards */
+.status-box {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.status-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status-value {
+    font-size: 18px;
+    color: #333;
+}
+
+.status-pet {
+    background-color: #f5f5f5;
+}
+
+.status-food {
+    background-color: #ffe0b2;
+}
+
+.status-checkup {
+    background-color: #c8e6c9;
+}
+
+.status-clients {
+    background-color: #bbdefb;
+}
+
+.status-users {
+    background-color: #f8bbd0;
+}
+
+.status-blogs {
+    background-color: #d1c4e9;
+}
+/* pet route: pet card  */
+.pet-image {
+    width: 340px;
+    height: auto;
+    margin-bottom: 20px;
+}
+.pet-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-square {
+    height: 200px;
+}
+
+.card-square .card-title{
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

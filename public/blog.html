@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{{ blog.title }}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/dark-mode.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            {% set active_route = active_route %}
+            {% include 'blocks/side-navbar.html' %}
+            <!-- Main Wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                {% include 'blocks/top-navbar.html' %}
+                <!-- Main Area-->
+                <div class="container-fluid">     
+                    <main class="col-md-12 col-lg-12 main-content">
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% if blog %}
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <h1 class="card-title blog-title">{{ blog.title }}</h1>
+                                                <h6 class="card-subtitle mb-2 text-muted blog-author">by: {{ blog.author }}</h6>
+                                                <hr>
+                                                <div class="card-text blog-body">
+                                                    {{ blog.body }}
+                                                </div>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <p>Blog not found</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <footer class="footer">
+                    <p class="credits-pstp">pstp made with &hearts; 2023</p>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>

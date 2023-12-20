@@ -1,0 +1,17 @@
+{% if not_registered_html %}
+    {{ not_registered_html }}
+{% elif medical_history %}
+    {% for history in medical_history %}
+        <tr>
+            <td>{{ pet_serials[history.pet_id] }}</td>
+            <td>{{ history.checkup_timestamp }}</td>
+            <td>{{ history.checkup_summary }}</td>
+        </tr>
+    {% endfor %}
+{% else %}
+    <tr>
+        <td colspan="3">No medical history available.</td>
+    </tr>
+{% endif %}
+
+

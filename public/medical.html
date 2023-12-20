@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Medical History & services</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/dark-mode.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            {% set active_route = active_route %}
+            {% include 'blocks/side-navbar.html' %}
+            <!-- Main Wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                {% include 'blocks/top-navbar.html' %}
+                <!-- Main Area-->
+                <div class="container-fluid">     
+                    <main class="col-md-12 col-lg-12 main-content">
+                        <h2>Medical Services</h2>
+                        <!-- Medical Services Section -->
+                        <div class="container mb-5">
+                            <h2>Medical Services</h2>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="card status-checkup">
+                                        <div class="card-body">
+                                            {% if session.logged_in %}
+                                                {% set logged_in_user = session.user_name %}
+                                                <h5 class="card-title"><strong>Request Medical Checkup</strong></h5>
+                                            {% else %}
+                                                <a class="nav-link" id="navbarDropdown" href="/login">
+                                                    <h5 class="card-title"><strong>Request Medical Checkup</strong></h5>
+                                                    <h6 class="card-body">Login</h6>
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card status-users">
+                                        <div class="card-body">
+                                            {% if session.logged_in %}
+                                                {% set logged_in_user = session.user_name %}
+                                                <h5 class="card-title"><strong>Request Pet Groming</strong></h5>
+                                            {% else %}
+                                                <a class="nav-link" id="navbarDropdown" href="/login">
+                                                    <h5 class="card-title"><strong>Request Pet Groming</strong></h5>
+                                                    <h6 class="card-body">Login</h6>
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card status-blogs">
+                                        <div class="card-body">
+                                            {% if session.logged_in %}
+                                                {% set logged_in_user = session.user_name %}
+                                                <h5 class="card-title"><strong>Request Pet Training</strong></h5>
+                                            {% else %}
+                                                <a class="nav-link" id="navbarDropdown" href="/login">
+                                                    <h5 class="card-title"><strong>Request Pet Training</strong></h5>
+                                                    <h6 class="card-body">Login</h6>
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Search Pet Medical History</h2>
+                        <div class="container mt-4">
+                            <form id="searchForm">
+                                <div class="form-group">
+                                    <label for="serialInput">Enter Pet Serial:</label>
+                                    <input type="text" class="form-control" id="serialInput" name="serial" placeholder="Enter serial">
+                                    <!-- <button type="submit" class="btn btn-primary">Search</button> -->
+                                </div>
+                            </form>
+                        </div>
+                        <div class="container mt-4">
+                            <h2>Medical History</h2>
+                            <div class="table-responsive mt-4">
+                                <table id="medicalTable" class="table table-bordered">
+                                    <!-- Table headers -->
+                                    <thead>
+                                        <tr>
+                                            <th>Pet Serial</th>
+                                            <th>Checkup Timestamp</th>
+                                            <th>Checkup Summary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% if not_registered_html %}
+                                            {{ not_registered_html }}
+                                        {% elif medical_history %}
+                                            {% for history in medical_history %}
+                                                <tr>
+                                                    <td>{{ pet_serials[history.pet_id] }}</td>
+                                                    <td>{{ history.checkup_timestamp }}</td>
+                                                    <td>{{ history.checkup_summary }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="3">No medical history available.</td>
+                                            </tr>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <footer class="footer">
+                    <p class="credits-pstp">pstp made with &hearts; 2023</p>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/medical.js') }}"></script>
+    </body>
+</html>

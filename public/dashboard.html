@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - PSTP</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/dark-mode.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Main Wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                {% include 'blocks/top-navbar.html' %}
+                
+                <!-- Main Area-->
+                <div class="container-fluid">     
+                    <main class="col-md-12 col-lg-12 main-content">
+                        <h2 class="mt-5 mb-5 text-center">{{ session.user_name }}'s Dashboard</h2>
+                    
+                        {% if session._role == 'admin' %}
+                        <!-- Admin Cards -->
+                        <section class="container mt-5">
+                            <div class="row justify-content-center mt-4 mb-4">
+                                <!-- Blogs -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-blogs">
+                                            <h5 class="card-title">Blogs</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Stats -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-food">
+                                            <h5 class="card-title">Stats</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- pets -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-checkup">
+                                            <h5 class="card-title">Pets</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- clients -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-clients">
+                                            <h5 class="card-title">clients</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- workers -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-users">
+                                            <h5 class="card-title">worker</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {% endif %}
+                    
+                        {% if session._role == 'client' %}
+                        <!-- Client Cards -->
+                        <section class="container mt-5">
+                            <div class="row justify-content-center mt-4 mb-4">
+                                <!-- pets -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-checkup">
+                                            <h5 class="card-title">My Pets</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Medical check -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-blogs">
+                                            <h5 class="card-title">Medical Check</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Pet Grooming -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-food">
+                                            <h5 class="card-title">Pet Grooming</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Pet Training -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-clients">
+                                            <h5 class="card-title">Pet Training</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {% endif %}
+                    
+                        {% if session._role == 'worker' %}
+                        <!-- Worker Cards -->
+                        <section class="container mt-5">
+                            <div class="row justify-content-center mt-4 mb-4">
+                                <!-- Tasks -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-food">
+                                            <h5 class="card-title">Tasks</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Calendar -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-checkup">
+                                            <h5 class="card-title">Calendar</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Reports -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card card-square">
+                                        <div class="card-body d-flex align-items-center justify-content-center status-users">
+                                            <h5 class="card-title">Reports</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {% endif %}
+                    </main>
+                    
+                </div>
+                <footer class="footer">
+                    <p class="credits-pstp">pstp made with &hearts; 2023</p>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>

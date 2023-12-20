@@ -7,6 +7,7 @@ from .user import User
 from .blog import Blog
 
 class ShelterOverview(db.Model):
+    """Shelter overview model"""
     __tablename__ = 'shelter_overview'
     id = db.Column(db.Integer, primary_key=True)
     total_regi_pets = db.Column(db.Integer, default=0)
@@ -18,6 +19,7 @@ class ShelterOverview(db.Model):
 
     @classmethod
     def get_instance(cls):
+        """Get shelter overview instance"""
         shelter_overview = cls.query.first()
         if shelter_overview is None:
             shelter_overview = cls()
@@ -26,6 +28,7 @@ class ShelterOverview(db.Model):
         return shelter_overview
 
     def update_totals(self):
+        """Update the shelter overview data"""
         self.total_regi_pets = Pet.query.count()
         self.total_food = Food.query.count()
         self.total_checkup = MedicalHistory.query.count()
@@ -35,6 +38,7 @@ class ShelterOverview(db.Model):
         db.session.commit()
 
     def serialize(self):
+        """Serialize shelter overview data"""
         return {
             'id': self.id,
             'total_regi_pets': self.total_regi_pets,

@@ -1,0 +1,14 @@
+
+{% for pet in pets %}
+<div class="col mb-4">
+    <div class="card">
+        <img src="{% if pet.pet_type == 'cat' %}https://logowik.com/content/uploads/images/black-cat4091.logowik.com.webp{% elif pet.pet_type == 'dog' %}https://logowik.com/content/uploads/images/golden-retriever-dog793.logowik.com.webp{% endif %}" class="card-img-top img-fluid" alt="{% if pet.pet_type == 'cat' %}Cat Image{% elif pet.pet_type == 'dog' %}Dog Image{% endif %}">
+        <div class="card-body">
+            <h5 class="card-title"><strong>{{ pet.pet_name }}</strong></h5>
+            <p class="card-text">{{ pet.gender }} - {{ pet.pet_type }}</p>
+            <a href="/pets/{{ pet.id }}" class="btn btn-primary">Profile</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+

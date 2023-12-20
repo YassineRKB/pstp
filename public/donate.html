@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Donations - PSTP</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='css/dark-mode.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            {% set active_route = active_route %}
+            {% include 'blocks/side-navbar.html' %}
+            <!-- Main Wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                {% include 'blocks/top-navbar.html' %}
+                <!-- Main Area-->
+                <div class="container-fluid">     
+                    <main class="col-md-12 col-lg-12 main-content">
+                        <h2>Donate to Our Cause</h2>
+                        <h6>Every cent matters</h6>
+                        <div class="container mt-4">
+                            <div class="container mt-4">
+                                <!-- Donation Form -->
+                                <form action="/donate" method="post">
+                                    <div class="form-group">
+                                        <label for="donation_name">Donation Name (you can put as anonymous if you wish):</label>
+                                        <input class="form-control" type="text" id="donation_name">
+                                        <label for="donation_amount">Donation Amount:</label>
+                                        
+                                        <div class="input-group">
+                                            <input required class="form-control" type="number" id="donation_amount">
+                                            <span class="currency-symbol"> $</span>
+                                        </div>
+                                        <label for="paymentMethod">Select Payment Method:</label>
+                                        <select class="form-control" id="paymentMethod" name="payment_method">
+                                            <option value="default">Select</option>
+                                            <option value="cc">Credit Card</option>
+                                            <option value="paypal">PayPal</option>
+                                            <option value="bank_transfer">Bank Transfer</option>
+                                        </select>
+                                    </div>                        
+                                    <!-- Credit Card Payment Fields -->
+                                    <div id="creditCardFields" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="cardNumber">Card Number:</label>
+                                            <input type="text" class="form-control" id="cardNumber" name="card_number" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="expiryDate">Expiry Date:</label>
+                                            <input type="text" class="form-control" id="expiryDate" name="expiry_date" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cvv">CVV:</label>
+                                            <input type="text" class="form-control" id="cvv" name="cvv" required>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- PayPal Payment Fields -->
+                                    <div id="paypalFields" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="paypalEmail">PayPal Email:</label>
+                                            <input type="email" class="form-control" id="paypalEmail" name="paypal_email" required>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- Bank Transfer Fields -->
+                                    <div id="bankTransferFields" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="bankName">Bank Name:</label>
+                                            <input type="text" class="form-control" id="bankName" name="bank_name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="accountNumber">Account Number:(IBAN)</label>
+                                            <input type="text" class="form-control" id="accountNumber" name="account_number" required>
+                                        </div>
+                                    </div>
+                                    <div.form-group>
+                                        <hr>
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">Donate</button>
+                                    </div.form-group>
+                                </form>
+                            </div>
+                            <div class="modal" tabindex="-1" id="donationModal" aria-labelledby="donationModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="donationModalLabel">Donation Details</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p id="donationInfo"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <footer class="footer">
+                    <p class="credits-pstp">pstp made with &hearts; 2023</p>
+                </footer>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+    </body>
+</html>
