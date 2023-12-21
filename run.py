@@ -186,18 +186,19 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['pwd']
-        role = 'client'  # Default role for a registered user
-        # Check if the email is already in use
+        """Default role for a registered user"""
+        role = 'client'  
+        """Check if the email is already in use"""
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
             return render_template('register.html', error='Email already in use. Please choose another.')
-        # Create a new user instance and add it to the database
+        """Create a new user instance and add it to the database"""
         new_user = User(firstname=firstname, lastname=lastname, username=username, email=email, password=password, role=role)
         db.session.add(new_user)
         db.session.commit()
-        # Redirect to the login page after successful registration
+        """Redirect to the login page after successful registration"""
         return redirect(url_for('home'))
-    # Render the registration template for GET requests
+    """Render the registration template for GET requests"""
     return render_template('register.html')
 
 @app.route('/dashboard')

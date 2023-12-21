@@ -96,16 +96,28 @@ This project, **Pets Shelter Terra - Platform**, is a comprehensive platform aim
     
     (optional) fill db with available db dump
         
-        cat dump-v1.8.3.sql | mysql -u your_user -p
+        cat dump-vX.X.X.sql | mysql -u your_user -p
 
 ## Usage
 
-    Run the application:
+    #Run the application:
 
         DB_USER="dev_usr" DB_PASSWORD="dev_pwd" DB_NAME="db_dev" python3 run.py
         DB_USER="dev_usr" DB_PASSWORD="dev_pwd" DB_NAME="db_dev" python3 api.py
 
-    Access the application by visiting http://localhost:5000 in your web browser.
+    #Access the application by visiting http://localhost:5000 in your web browser.
+    #Dashboard via http://localhost:5000/dashboard
+    #Profile via http://localhost:5000/profile
+    #Login as admin via http://localhost:5000/login
+        user:admin@pstp.ga
+        pass:12345678
+    #Login as client via http://localhost:5000/login
+        user:client@pstp.ga
+        pass:12345678
+    #Login as worker via http://localhost:5000/login
+        user:worker@pstp.ga
+        pass:12345678
+    
     api lives in http://localhost/:5001/api/v1
 
 ## credits
